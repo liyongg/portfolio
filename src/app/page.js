@@ -7,8 +7,8 @@ export default function Home() {
     <>
       <MenuBar />
 
-      <div class="min-h-screen flex flex-col items-center justify-center text-center">
-        <p class="font-semibold text-4xl">Hi, I am Michel Pan</p>
+      <div className="min-h-screen flex flex-col items-center justify-center text-center">
+        <p className="font-semibold text-4xl">Hi, I am Michel Pan</p>
       </div>
 
       <Taskbar />
