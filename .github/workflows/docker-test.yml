@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Build Docker Image
-        run: docker build -t panliyong/portfolio
+        run: docker build -t panliyong/portfolio .
 
       - name: Push Docker Image
         run: |
