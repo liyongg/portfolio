@@ -1,0 +1,31 @@
+.box {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent, transparent 40%, rgb(239, 181, 181)),
+        linear-gradient(rgb(229 231 235), rgb(229 231 235));
+        /* linear-gradient(#7e7a7a, #7e7a7a); */
+    animation: rotate 2.5s cubic-bezier(0.79, 0.14, 0.15, 0.86) infinite;    
+}
+
+.box:before,
+.box:after {
+    content: " ";
+    position: absolute;
+    inset: 4px;
+    background: black;
+    border-radius: inherit;
+}
+
+.box:before {
+    background: linear-gradient(45deg, transparent, transparent 10%, grey);
+    filter: blur(32px);
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
