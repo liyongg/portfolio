@@ -17,3 +17,16 @@ jobs:
         run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p "${{ secrets.DOCKER_PASSWORD }}"
           docker push panliyong/portfolio
+
+      - name: SSH in Pi and Pull Docker Image
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PI_HOST }}
+          username: ${{ secrets.PI_USERNAME }}
+          password: "${{ secrets.PI_PASSWORD }}"
+          script: |
+            docker pull panliyong/portfolio
+            docker stop portfolio || true
+            docker rm portfolio || true
+            docker run -d --name portfolio -p 3000:3000 panliyong/portfolio
+          
