@@ -25,11 +25,6 @@ jobs:
       - name: Build Docker Image
         run: docker buildx create --use --name panliyong-portfolio && docker buildx inspect --bootstrap && docker buildx build --platform linux/amd64,linux/arm64/v8 -t panliyong/portfolio --push .
 
-      - name: List Docker Images
-        run: docker images
-      - name: Push Docker Image
-        run: docker push panliyong/portfolio
-
       - name: SSH in Pi and Pull Docker Image
         uses: appleboy/ssh-action@master
         with:
