@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.PI_USERNAME }}
           password: "${{ secrets.PI_PASSWORD }}"
           script: |
-            docker pull panliyong/portfolio
+            docker pull --platform linux/arm64 panliyong/portfolio
             docker stop portfolio || true
             docker rm portfolio || true
             docker run -d --name portfolio -p 3000:3000 panliyong/portfolio
