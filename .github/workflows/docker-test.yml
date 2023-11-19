@@ -23,7 +23,7 @@ jobs:
       - name: Log into Docker
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p "${{ secrets.DOCKER_PASSWORD }}"
       - name: Build Docker Image
-        run: docker buildx create --use && docker buildx inspect --bootstrap && docker buildx build --platform linux/amd64,linux/arm64/v8 -t panliyong/portfolio --push .
+        run: docker buildx create --use --name panliyong/portfolio && docker buildx inspect --bootstrap && docker buildx build --platform linux/amd64,linux/arm64/v8 -t panliyong/portfolio --push .
 
       - name: List Docker Images
         run: docker images
