@@ -59,6 +59,8 @@ USER nextjs
 EXPOSE 3000
 
 ENV PORT 3000
+ENV PATH /app/node_modules/.bin:$PATH
+
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
