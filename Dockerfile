@@ -6,9 +6,6 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install only necessary dependencies
-RUN apk --no-cache add curl
-
 # Install Node.js modules
 RUN npm install
 
