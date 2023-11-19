@@ -7,7 +7,7 @@ export default function Taskbar() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 mx-auto w-full h-16 bg-gray-100 text-black flex items-center justify-center"
+      className="fixed bottom-2 left-0 right-0 mx-auto w-full h-16 bg-gray-100 text-black flex items-center justify-center"
       style={{ width: taskBarWidth, borderRadius: "1rem" }}
     >
       <div className="flex space-x-4">
