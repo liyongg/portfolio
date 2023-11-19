@@ -1,4 +1,5 @@
-FROM node:20
+# Use a multi-stage build with a build stage for Node.js
+FROM node:20 as builder
 
 # Set the working directory to /app
 WORKDIR /app
@@ -15,7 +16,15 @@ COPY . .
 # Build the Next.js app
 RUN npm run build
 
-# Expose the port that the app will run on
+# Use a minimal base image for the final stage
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+
 EXPOSE 3000
 
 # Command to run the application
