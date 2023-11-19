@@ -23,11 +23,12 @@ jobs:
       - name: Build Docker Image
         run: docker buildx create --use && docker buildx inspect --bootstrap && docker buildx build --platform linux/amd64,linux/arm64/v8 -t panliyong/portfolio .
 
+      - name: Log into Docker
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p "${{ secrets.DOCKER_PASSWORD }}"
+      - name: List Docker Images
+        run: docker images
       - name: Push Docker Image
-        run: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p "${{ secrets.DOCKER_PASSWORD }}"
-          docker buildx create --use && docker buildx inspect --bootstrap && docker buildx build --platform linux/amd64,linux/arm64/v8 -t panliyong/portfolio .
-          docker push panliyong/portfolio
+        run: docker push panliyong/portfolio
 
       - name: SSH in Pi and Pull Docker Image
         uses: appleboy/ssh-action@master
