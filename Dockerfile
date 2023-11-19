@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a minimal base image for the final stage
-FROM node:20-alpine
+FROM node:20
 
 WORKDIR /app
 
