@@ -27,7 +27,7 @@ FROM arm64v8/node:20-alpine
 WORKDIR /usr/src/app
 
 # Copy the built artifacts from the build stage
-COPY --from=build /usr/src/app/build ./build
+COPY --from=build /usr/src/app/.next ./.next
 
 # Expose the port that the app will run on
 EXPOSE 3000
